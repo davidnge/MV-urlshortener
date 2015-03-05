@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
             name='Urls',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('urlLink', models.URLField()),
+                ('long_link', models.URLField()),
+                ('short_link', models.URLField(null=True)),
                 ('pub_date', models.DateTimeField(auto_now=True)),
             ],
             options={

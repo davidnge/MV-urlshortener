@@ -1,0 +1,5 @@
+Django==1.7.5
+bitly-api==0.3
+django-crispy-forms==1.4.0
+simplejson==3.6.5
+wsgiref==0.1.2

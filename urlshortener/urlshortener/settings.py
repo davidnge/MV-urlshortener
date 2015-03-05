@@ -56,6 +56,9 @@ ROOT_URLCONF = 'urlshortener.urls'
 
 WSGI_APPLICATION = 'urlshortener.wsgi.application'
 
+BITLY_USER = 'davidnge'
+BITLY_API_KEY = 'R_f5231f7a4063408e81202b9725a6c6fa'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
