@@ -65,8 +65,12 @@ BITLY_API_KEY = 'R_f5231f7a4063408e81202b9725a6c6fa'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'shorturl',
+        'USER': 'davidnge',
+        'PASSWORD':'likenoother',
+        'HOST': 'localhost',
+        'PORT': '5432', 
     }
 }
 
