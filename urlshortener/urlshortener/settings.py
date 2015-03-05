@@ -82,8 +82,6 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "static", "static"),
     )
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "root")
 
 LANGUAGE_CODE = 'en-us'
 
@@ -99,4 +97,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+
+
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "root")
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(BASE_DIR), "static", "static"),
+    )
+
