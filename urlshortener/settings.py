@@ -101,6 +101,10 @@ STATICFILES_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "static", "static"),
     )
 
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "root")
+STATIC_URL = '/static/'
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -112,19 +116,11 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 
 
 
-# Parse database configuration from $DATABASE_URL
 
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "root")
-STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(os.path.dirname(BASE_DIR), "static", "static"),
-    )
 
