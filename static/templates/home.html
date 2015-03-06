@@ -37,29 +37,68 @@
       <div class="site-wrapper-inner">
 
         <div class="cover-container">
-
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
+              <h3 class="masthead-brand">Shorty</h3>
             </div>
-          </div>
+            <small class="pull-left">powered by bitly</small>
 
+          </div>
+          <div class="row">
           <div class="inner cover">
             <h1 class="cover-heading">Shorten Your URL</h1>
+           	</br>
+			<form method="POST" action=""> {% csrf_token %}
+				<div class="col-md-10 sm-col-10">
+					{{ form | crispy }}
+				</div>
+				<div class="col-md-2 sm-col-2">
+					<input type="submit" value="Make Short" class="btn btn-warning"/>
+				 </div>
+			</form>	
             
-            <form method="POST" action=""> {% csrf_token %}
-				{{ form | crispy }}
-				<input type="submit" value="Short" class="btn btn-warning"/>
-			</form>
-          </div>
+			</br>
+			</br>
+			</br>
+			</br>
 
+			{% if just_shorten_link %}
+			<h3>
+				Here's Your Link
+			</h3>
+			<div class="row list">
+				<div class="col-md-6 col-sm-6 text-left">
+					<a href="{{just_shorten_link.long_link}}">{{just_shorten_link.long_link}}</a>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<a href="{{just_shorten_link.short_link}}">{{just_shorten_link.short_link}}</a>
+				</div>
+
+			</div>
+			{% endif %}
+			</br>
+			</br>
+			{% if prev_links %}
+			<h3>
+			Previous shorten links	
+			<hr class="faded" /> 
+			</h3>
+			<ul>
+				{% for item in prev_links %}	
+					<div class="row list">
+						<div class="col-md-6 col-sm-6 text-left">
+							<a href="{{item.long_link}}">{{item.long_link}}</a>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<a href="{{item.short_link}}">{{item.short_link}}</a>
+						</div>
+					</div>		
+					
+				{% endfor %}
+			</ul>
+			{% endif %}
+          </div>
+          </div>
           <div class="mastfoot">
             <div class="inner">
               <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
