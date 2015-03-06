@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 import dj_database_url
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname((__file__))
 
 
 
@@ -71,13 +71,17 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd4qlod5tg2uc0m',
-        'USER': 'mkjirdllummigq',
-        'PASSWORD': 'XlbsOg_-mrUXBm7sRO7WQVthAh',
-        'HOST': 'ec2-54-197-241-95.compute-1.amazonaws.com',
+        'NAME': 'd6sibqnhk0ajhp',
+        'USER': 'eaocqbtovogznf',
+        'PASSWORD': '193zs5otP-aBlGSHGPY9OAPMLU ',
+        'HOST': 'ec2-50-19-249-214.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+
+
+
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
