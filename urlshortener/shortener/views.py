@@ -14,17 +14,15 @@ def home(request):
 
 	template = "home.html"
 	form = SubmitForm(request.POST or None)
-	short_url = None
 	link_list = Urls.objects.all()
-	just_shorten_link = None
-	prev_links = None
-	filtered_prev_links = []
+	short_url = None
+	just_shorten_link = None #most recent link shortened
+	prev_links = None #previous shortened links except for most recent
 	paginator = None
 
 	if form.is_valid():
 		long_url = form.cleaned_data['urlLink']
 		short_url = shorten_url(long_url)
-		#print "short url = %s" % short_url
 		new_link = Urls.objects.create(long_link=long_url, short_link=short_url)  
 		new_link.save()
 		return redirect("home")
@@ -37,6 +35,7 @@ def home(request):
 	context = locals()
 	return render(request, template, context)
 
+#calling bitly api
 def shorten_url(long_url):
 	bitly = bitly_api.Connection(settings.BITLY_USER,settings.BITLY_API_KEY)
 	short_url = bitly.shorten(long_url)['url']
